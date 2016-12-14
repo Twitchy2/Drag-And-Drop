@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <div class="Inner"
+    <head>
+        <title><%= title %></title>
+        <h1>Drag And Drop!</h1>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="/javascripts/jquery-3.1.1.min.js"></script>
+        <script src="/javascripts/jquery-sortable.js"></script>
+    </head>
+    <body class ="secondBorder">
+        <main>
+            <form method="post" class="firstBorder">
+                <label for="title">Title </label>
+                <input name="title" id="title" required />
+                <label for="date">Date </label>
+                <input type="date" name="date" id="date" required />
+                <button>Add</button>
+            </form>
+            <ol id="sortable" class="sortable">
+                <% for(var i = 0; i < tasks.length; i++){ %>
+                    <li data-id="<%= tasks[i]._id %>" class="task">
+                        <%= tasks[i].title + ' @ ' + tasks[i].date %>
+                        <a href="/delete/<%= tasks[i]._id %>">Delete</a>
+                    </li>
+                <% } %>
+            </ol>
+        </main>
+    </body>
+    <footer>
+        <script src="/javascripts/scripts.js"></script>
+    </footer>
+    </div>
+</html>
